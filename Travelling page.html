@@ -1,0 +1,229 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Landing Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0%;
+            padding: 0%;
+            font-family: sans-serif;
+        }
+
+        .showcase {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            min-height: 100vh;
+            padding: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: black;
+            color: white;
+            z-index: 2;
+        }
+
+        /* .showcase.active{
+            right: 300px;
+        } */
+
+        .showcase header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 100px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .toggle {
+            position: relative;
+            height: 60px;
+            width: 60px;
+            /* background: url('data:image/jpeg;base64,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'); */
+            background-repeat: no-repeat;
+            background-size: 25px;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        /* .toggle.active {
+            background: url('https://th.bing.com/th/id/OIP.QqlnWLrlmjOvfT6XTuaHRgHaJZ?w=138&h=180&c=7&r=0&o=5&pid=1.7');
+            background-repeat: no-repeat;
+            background-size: 25px;
+            background-position: center;
+        } */
+
+        .showcase video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #03a9f4;
+            mix-blend-mode: overlay;
+        }
+
+        .text {
+            position: relative;
+            z-index: 10;
+        }
+
+        .text h2 {
+            font-size: 5em;
+            font-weight: 800;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+
+        .text h3 {
+            font-size: 4em;
+            font-weight: 700;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+
+        .text p {
+            font-size: 1.1em;
+            margin: 20px 0;
+            font-weight: 400;
+            max-width: 700px;
+        }
+
+        .text a {
+            display: inline-block;
+            font-size: 1em;
+            background: white;
+            padding: 10px 30px;
+            text-decoration: none;
+            color: #111;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.2s;
+        }
+
+        .text a:hover {
+            letter-spacing: 6px;
+        }
+
+        .social {
+            position: absolute;
+            bottom: 20px;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social li {
+            list-style: none;
+        }
+
+        .social li a {
+            display: inline-block;
+            margin-right: 5px;
+            transform: scale(0.5);
+            transition: 0.5s;
+        }
+
+        .social li a:hover {
+            transform: scale(0.5) translateY(-15px)
+        }
+
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            transition: 0.5s;
+        }
+
+        .menu li a {
+            color: black;
+            text-decoration: none;
+            left: 0;
+           background: white;
+           
+        }
+
+        .menu li a:hover{
+            background: yellow;
+            /* color: white; */
+        }
+    </style>
+</head>
+
+<body>
+    <section class="showcase">
+        <header>
+            <h2 class="logo">Travel</h2>
+            <div class="toggle"></div>
+        </header>
+        <video
+            src="https://player.vimeo.com/external/517619980.sd.mp4?s=61be3cadb6566d23fb20ad2cf54876e2a85a78c5&profile_id=164&oauth2_token_id=57447761"
+            muted loop autoplay></video>
+
+        <div class="overlay"></div>
+        <div class="text">
+            <h2>Never Stop</h2>
+            <h3>Exploring The World</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum excepturi magni aliquam, dicta at
+                provident obcaecati reprehenderit maxime sequi aspernatur!</p>
+            <a href="#">Explore</a>
+        </div>
+        <ul class="social">
+            <li> <a href="#"> <img
+                        src="https://th.bing.com/th/id/OIP.vgIGdgFcikTpOamLdJ9X7AHaHa?w=211&h=211&c=7&r=0&o=5&pid=1.7"
+                        height="30" width="30" alt="FB"> </a> </li>
+            <li> <a href="#"><img
+                        src="https://th.bing.com/th/id/OIP.VDkf14-_VAgjryLveN3ImQEgDY?w=265&h=199&c=7&r=0&o=5&pid=1.7"
+                        height="30" width="30" alt="Insta"> </a> </li>
+            <li> <a href="#"><img
+                        src="https://www.bing.com/th?id=OIP.raZLY20881f0XC2hWofJbwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                        height="30" width="30" alt="Tweet" srcset=""> </a> </li>
+        </ul>
+    </section>
+    <div class="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Destination</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
